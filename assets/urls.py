@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^index/',views.index,name='index'),
     url(r'^detail/(?P<asset_id>[0-9]+)/$',views.detail,name='detail'),
     url(r'^$',views.dashboard),
-    url(r'serverstatus/',views.serverstatus)
+    url(r'status/',views.status)
 ]

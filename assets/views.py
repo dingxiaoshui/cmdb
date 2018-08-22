@@ -5,6 +5,12 @@ import json
 from . import models
 from . import asset_handler
 from django.shortcuts import get_object_or_404
+import os
+import win32api
+import win32con
+import wmi
+import time
+import psutil
 
 @csrf_exempt
 def report(request):
@@ -63,6 +69,15 @@ def detail(request,asset_id):
     return render(request,'assets/detail.html',locals())
 
 
-def serverstatus(requeest):
+def status(requeest):
 
-    pass
+    lizi = []
+    test= 'xiaoshui'
+    cpunum = psutil.cpu_count()
+    memtotal = psutil.virtual_memory().total
+    memused = psutil.virtual_memory().used
+    mem = memused / memtotal
+    user = psutil.users()
+
+
+    return render(requeest,'assets/status.html',locals())
